@@ -1,4 +1,4 @@
-package boletin1.ejer02;
+package boletin1.ejer2;
 
 import java.util.Scanner;
 
@@ -9,20 +9,29 @@ public class PrincipalPersona {
 		// creo el scanner
 		Scanner leer = new Scanner(System.in);
 
-		// Creo dos objetos
-		Persona objeto1 = new Persona();
-		Persona objeto2 = new Persona();
+		// creo los objetos
+		Persona objeto1;
+		Persona objeto2;
+
+		// Creo las variables que almacenaran los datos
+		String dni;
+		String nombre;
+		String apellido;
+		int edad;
 
 		// le pido a la persona sus datos
 		System.out.println("Persona 1: ");
 		System.out.print("Introduzca su dni: ");
-		objeto1.dni = leer.nextLine();
+		dni = leer.nextLine();
 		System.out.print("Introduzca su nombre: ");
-		objeto1.nombre = leer.nextLine();
+		nombre = leer.nextLine();
 		System.out.print("Introduzca su apellido: ");
-		objeto1.apellido = leer.nextLine();
+		apellido = leer.nextLine();
 		System.out.print("Introduzca su edad: ");
-		objeto1.edad = leer.nextInt();
+		edad = leer.nextInt();
+
+		// inicializo el objeto con los valores obtenidos
+		objeto1 = new Persona(dni, nombre, apellido, edad);
 
 		// limpio el buffer
 		leer.nextLine();
@@ -30,13 +39,16 @@ public class PrincipalPersona {
 		// le pido a la persona sus datos
 		System.out.println("Persona 2: ");
 		System.out.print("Introduzca su dni: ");
-		objeto2.dni = leer.nextLine();
+		dni = leer.nextLine();
 		System.out.print("Introduzca su nombre: ");
-		objeto2.nombre = leer.nextLine();
+		nombre = leer.nextLine();
 		System.out.print("Introduzca su apellido: ");
-		objeto2.apellido = leer.nextLine();
+		apellido = leer.nextLine();
 		System.out.print("Introduzca su edad: ");
-		objeto2.edad = leer.nextInt();
+		edad = leer.nextInt();
+
+		// asigno los valores del objeto 2 que se han recogido
+		objeto2 = new Persona(dni, nombre, apellido, edad);
 
 		// si la edad es mayor o igual que 18 es mayor de edad
 		if (objeto1.edad >= 18) {

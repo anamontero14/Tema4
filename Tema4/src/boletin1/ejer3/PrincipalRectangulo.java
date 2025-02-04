@@ -1,4 +1,4 @@
-package boletin1.ejer03;
+package boletin1.ejer3;
 
 public class PrincipalRectangulo {
 
@@ -12,25 +12,13 @@ public class PrincipalRectangulo {
 		int area1;
 		int area2;
 
-		// DECLARO LOS OBJETOS
+		// declaro los objetos
+		Rectangulo rectangulo1;
+		Rectangulo rectangulo2;
 
-		// rectangulo 1
-		Rectangulo rectangulo1 = new Rectangulo();
-
-		// rectangulo 2
-		Rectangulo rectangulo2 = new Rectangulo();
-
-		// le asigno los valores al rectangulo 1
-		rectangulo1.x1 = 0;
-		rectangulo1.x2 = 5;
-		rectangulo1.y1 = 0;
-		rectangulo1.y1 = 5;
-
-		// le asigno los valores al rectangulo 2
-		rectangulo2.x1 = 7;
-		rectangulo2.x2 = 2;
-		rectangulo2.y1 = 9;
-		rectangulo2.y2 = 3;
+		// le asigno los valores
+		rectangulo1 = new Rectangulo(0, 5, 5, 0);
+		rectangulo2 = new Rectangulo(7, 2, 9, 3);
 
 		// suma de los lados del rectagulo 1
 		perimetro1 = Math.abs(2 * (rectangulo1.x1 - rectangulo1.x2)) + Math.abs(2 * (rectangulo1.y1 - rectangulo1.y2));
