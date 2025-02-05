@@ -10,25 +10,25 @@ public class PrincipalPunto {
 		Punto punto3 = new Punto(-3, 7);
 
 		// MUESTRO POR PANTALLA SUS COORDENADAS
-		System.out.println(punto1.x + "," + punto1.y);
-		System.out.println(punto2.x + "," + punto2.y);
-		System.out.println(punto3.x + "," + punto3.y);
+		System.out.println(punto1.getX() + "," + punto1.getY());
+		System.out.println(punto2.getX() + "," + punto2.getY());
+		System.out.println(punto3.getX() + "," + punto3.getY());
 
 		// MODIFICAR EL CONTENIDO PARA PROBAR DIFERENTES OPERADORES
-		punto1.x = punto1.x - 1;
-		punto1.y += 3;
+		punto1.setX(punto1.getX() - 1);
+		punto1.setY(punto1.getY() + 3);
 
-		punto2.x = punto1.x;
-		punto2.y *= 5;
+		punto2.setX(punto1.getX());
+		punto2.setY(punto2.getY() * 5);
 
-		punto3.x = punto3.x + punto2.y;
-		punto3.y += 1;
+		punto3.setX(punto3.getX() + punto2.getY());
+		punto3.setY(punto3.getY() + 1);
 
 		// MUESTRO LAS MODIFICACIONES
 		System.out.println();
-		System.out.println(punto1.x + "," + punto1.y);
-		System.out.println(punto2.x + "," + punto2.y);
-		System.out.println(punto3.x + "," + punto3.y);
+		System.out.println(punto1.getX() + "," + punto1.getY());
+		System.out.println(punto2.getX() + "," + punto2.getY());
+		System.out.println(punto3.getX() + "," + punto3.getY());
 	}
 
 }

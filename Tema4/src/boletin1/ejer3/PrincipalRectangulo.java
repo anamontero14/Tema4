@@ -17,67 +17,76 @@ public class PrincipalRectangulo {
 		Rectangulo rectangulo2;
 
 		// le asigno los valores
-		rectangulo1 = new Rectangulo(0, 5, 5, 0);
+		rectangulo1 = new Rectangulo(0, 5, 0, 5);
+
 		rectangulo2 = new Rectangulo(7, 2, 9, 3);
 
 		// suma de los lados del rectagulo 1
-		perimetro1 = Math.abs(2 * (rectangulo1.x1 - rectangulo1.x2)) + Math.abs(2 * (rectangulo1.y1 - rectangulo1.y2));
+		perimetro1 = Math.abs(2 * (rectangulo1.getX1() - rectangulo1.getX2()))
+				+ Math.abs(2 * (rectangulo1.getY1() - rectangulo1.getY2()));
 
 		// suma de los lados del rectangulo 2
-		perimetro2 = Math.abs(2 * (rectangulo2.x1 - rectangulo2.x2)) + Math.abs(2 * (rectangulo2.y1 - rectangulo2.y2));
+		perimetro2 = Math.abs(2 * (rectangulo2.getX1() - rectangulo2.getX2()))
+				+ Math.abs(2 * (rectangulo2.getY1() - rectangulo2.getY2()));
 
 		// area del rectangulo 1
-		area1 = Math.abs((rectangulo1.x1 - rectangulo1.x2) * (rectangulo1.y1 - rectangulo1.y2));
+		area1 = Math.abs((rectangulo1.getX1() - rectangulo1.getX2()) * (rectangulo1.getY1() - rectangulo1.getY2()));
 
 		// area del rectangulo 2
-		area2 = Math.abs((rectangulo2.x1 - rectangulo2.x2) * (rectangulo2.y1 - rectangulo2.y2));
+		area2 = Math.abs((rectangulo2.getX1() - rectangulo2.getX2()) * (rectangulo2.getY1() - rectangulo2.getY2()));
 
 		// muestro los lados, el perimetro y el area de cada objeto
 		System.out.println("RECTANGULO 1");
-		System.out.println(" Coordenadas: (" + rectangulo1.x1 + "," + rectangulo1.y1 + ") y (" + rectangulo1.x2 + ","
-				+ rectangulo1.y2 + ")\n Perímetro: " + perimetro1 + "\n Área: " + area1);
+		System.out.println(
+				" Coordenadas: (" + rectangulo1.getX1() + "," + rectangulo1.getY1() + ") y (" + rectangulo1.getX2()
+						+ "," + rectangulo1.getY2() + ")\n Perímetro: " + perimetro1 + "\n Área: " + area1);
 
 		// rectangulo 2
 		System.out.println("RECTANGULO 2");
-		System.out.println(" Coordenadas: (" + rectangulo2.x1 + "," + rectangulo2.y1 + ") y (" + rectangulo2.x2 + ","
-				+ rectangulo2.y2 + ")\n Perímetro: " + perimetro2 + "\n Área: " + area2);
+		System.out.println(
+				" Coordenadas: (" + rectangulo2.getX1() + "," + rectangulo2.getY1() + ") y (" + rectangulo2.getX2()
+						+ "," + rectangulo2.getY2() + ")\n Perímetro: " + perimetro2 + "\n Área: " + area2);
 
 		// modificacion de las coordenadas del rectangulo 1
-		rectangulo1.x1 = 8;
-		rectangulo1.x2 = 2;
-		rectangulo1.y1 = 7;
-		rectangulo1.y2 = 1;
+		rectangulo1.setX1(8);
+		rectangulo1.setX2(2);
+		rectangulo1.setY1(7);
+		rectangulo1.setY2(1);
 
 		// modificacion de las coordenadas del rectangulo 2
-		rectangulo2.x1 = 10;
-		rectangulo2.x2 = -6;
-		rectangulo2.y1 = 5;
-		rectangulo2.y2 = 7;
+		rectangulo2.setX1(10);
+		rectangulo2.setX2(-6);
+		rectangulo2.setY1(5);
+		rectangulo2.setY2(7);
 
 		// suma de los lados del rectagulo 1
-		perimetro1 = Math.abs(2 * (rectangulo1.x1 - rectangulo1.x2)) + Math.abs(2 * (rectangulo1.y1 - rectangulo1.y2));
+		perimetro1 = Math.abs(2 * (rectangulo1.getX1() - rectangulo1.getX2()))
+				+ Math.abs(2 * (rectangulo1.getY1() - rectangulo1.getY2()));
 
 		// suma de los lados del rectangulo 2
-		perimetro2 = Math.abs(2 * (rectangulo2.x1 - rectangulo2.x2)) + Math.abs(2 * (rectangulo2.y1 - rectangulo2.y2));
+		perimetro2 = Math.abs(2 * (rectangulo2.getX1() - rectangulo2.getX2()))
+				+ Math.abs(2 * (rectangulo2.getY1() - rectangulo2.getY2()));
 
 		// area del rectangulo 1
-		area1 = Math.abs((rectangulo1.x1 - rectangulo1.x2) * (rectangulo1.y1 - rectangulo1.y2));
+		area1 = Math.abs((rectangulo1.getX1() - rectangulo1.getX2()) * (rectangulo1.getY1() - rectangulo1.getY2()));
 
 		// area del rectangulo 2
-		area2 = Math.abs((rectangulo2.x1 - rectangulo2.x2) * (rectangulo2.y1 - rectangulo2.y2));
+		area2 = Math.abs((rectangulo2.getX1() - rectangulo2.getX2()) * (rectangulo2.getY1() - rectangulo2.getY2()));
 
 		System.out.println();
 		System.out.println();
 
 		// muestro los lados, el perimetro y el area de cada objeto
 		System.out.println("RECTANGULO 1");
-		System.out.println(" Coordenadas: (" + rectangulo1.x1 + "," + rectangulo1.y1 + ") y (" + rectangulo1.x2 + ","
-				+ rectangulo1.y2 + ")\n Perímetro: " + perimetro1 + "\n Área: " + area1);
+		System.out.println(
+				" Coordenadas: (" + rectangulo1.getX1() + "," + rectangulo1.getY1() + ") y (" + rectangulo1.getX2()
+						+ "," + rectangulo1.getY2() + ")\n Perímetro: " + perimetro1 + "\n Área: " + area1);
 
 		// rectangulo 2
 		System.out.println("RECTANGULO 2");
-		System.out.println(" Coordenadas: (" + rectangulo2.x1 + "," + rectangulo2.y1 + ") y (" + rectangulo2.x2 + ","
-				+ rectangulo2.y2 + ")\n Perímetro: " + perimetro2 + "\n Área: " + area2);
+		System.out.println(
+				" Coordenadas: (" + rectangulo2.getX1() + "," + rectangulo2.getY1() + ") y (" + rectangulo2.getX2()
+						+ "," + rectangulo2.getY2() + ")\n Perímetro: " + perimetro2 + "\n Área: " + area2);
 	}
 
 }

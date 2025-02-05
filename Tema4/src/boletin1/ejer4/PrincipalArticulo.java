@@ -33,10 +33,10 @@ public class PrincipalArticulo {
 		producto1 = new Articulo(nombre, precioSinIva, cuantosQuedan);
 
 		// calculo el precio de venta al publico
-		precioPublico = ((double) producto1.precioSinIva * producto1.IVA / 100) + producto1.precioSinIva;
+		precioPublico = ((double) producto1.getPrecioSinIva() * producto1.IVA / 100) + producto1.getPrecioSinIva();
 
-		System.out.println(producto1.nombre + " - Precio: " + producto1.precioSinIva + "€ - IVA:" + producto1.IVA
-				+ "% - PVP: " + precioPublico + "€" + " - Quedan: " + producto1.cuantosQuedan);
+		System.out.println(producto1.getNombre() + " - Precio: " + producto1.getPrecioSinIva() + "€ - IVA:"
+				+ producto1.IVA + "% - PVP: " + precioPublico + "€" + " - Quedan: " + producto1.getCuantosQuedan());
 
 		// cerrar el scanner
 		leer.close();
