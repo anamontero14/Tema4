@@ -50,25 +50,14 @@ public class PrincipalPersona {
 		// asigno los valores del objeto 2 que se han recogido
 		objeto2 = new Persona(dni, nombre, apellido, edad);
 
-		// si la edad es mayor o igual que 18 es mayor de edad
-		if (objeto1.getEdad() >= 18) {
-			System.out.println(objeto1.getNombre() + " " + objeto1.getApellido() + " con dni " + objeto1.getDni()
-					+ " es mayor de edad");
-		} else {
-			// si es menor de 18
-			System.out.println(objeto1.getNombre() + " " + objeto1.getApellido() + " con dni " + objeto1.getDni()
-					+ " no es mayor de edad");
-		}
+		// devuelve si la persona es mayor de edad o no
+		System.out.println("La persona: " + objeto1 + " Es mayor de edad: " + objeto1.esMayorEdad());
 
-		// si el objeto2
-		if (objeto2.getEdad() >= 18) {
-			System.out.println(objeto2.getNombre() + " " + objeto2.getApellido() + " con dni " + objeto2.getDni()
-					+ " es mayor de edad");
-		} else {
-			// si es menor de 18
-			System.out.println(objeto2.getNombre() + " " + objeto2.getApellido() + " con dni " + objeto2.getDni()
-					+ " no es mayor de edad");
-		}
+		// devuelve si la persona es mayor de edad o no
+		System.out.println("La persona: " + objeto2 + " Es jubilada: " + objeto2.esJubilado());
+
+		// devuelve la diferencia de edad entre dos personas
+		System.out.println(objeto1.diferenciaEdad(objeto2));
 
 		// cerrar el scanner
 		leer.close();

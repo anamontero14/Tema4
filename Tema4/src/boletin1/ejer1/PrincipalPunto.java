@@ -1,8 +1,13 @@
 package boletin1.ejer1;
 
+import java.util.Scanner;
+
 public class PrincipalPunto {
 
 	public static void main(String[] args) {
+
+		// Creación del scanner
+		Scanner leer = new Scanner(System.in);
 
 		// creo 3 objetos
 		Punto punto1 = new Punto(5, 0);
@@ -14,21 +19,21 @@ public class PrincipalPunto {
 		System.out.println(punto2.getX() + "," + punto2.getY());
 		System.out.println(punto3.getX() + "," + punto3.getY());
 
-		// MODIFICAR EL CONTENIDO PARA PROBAR DIFERENTES OPERADORES
-		punto1.setX(punto1.getX() - 1);
-		punto1.setY(punto1.getY() + 3);
+		System.out.println("¿Cuánto desea que se desplace el punto 1? x,y");
+		punto1.desplaza(leer.nextInt(), leer.nextInt());
 
-		punto2.setX(punto1.getX());
-		punto2.setY(punto2.getY() * 5);
-
-		punto3.setX(punto3.getX() + punto2.getY());
-		punto3.setY(punto3.getY() + 1);
+		System.out.println("Introduzca un nuevo valor para el punto 2. x,y");
+		punto2.setXY(leer.nextInt(), leer.nextInt());
 
 		// MUESTRO LAS MODIFICACIONES
 		System.out.println();
-		System.out.println(punto1.getX() + "," + punto1.getY());
-		System.out.println(punto2.getX() + "," + punto2.getY());
-		System.out.println(punto3.getX() + "," + punto3.getY());
+		System.out.println(punto1);
+		System.out.println(punto2);
+
+		System.out.println("El punto 3 se ha desplazado respecto al 1: " + punto3.distancia(punto1));
+
+		// cierro el scanner
+		leer.close();
 	}
 
 }
