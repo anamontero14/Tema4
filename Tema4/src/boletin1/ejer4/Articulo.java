@@ -97,4 +97,25 @@ public class Articulo {
 		this.cuantosQuedan = cuantosQuedan;
 	}
 
+	/**
+	 * Hace una operación para añadirle el iva al precio sin iva para crear el
+	 * precio de venta al publico
+	 * 
+	 * @return el precio de la venta al público
+	 */
+	public int getPVP() {
+		return precioSinIva * IVA;
+	}
+
+	/**
+	 * Saca el precio con el descuento
+	 * 
+	 * @param descuento variable que almacena el descuento
+	 * @param pvp       variable que almacena el precio de venta al público
+	 * @return el precio con el descuento
+	 */
+	public int getPVPDescuento(int descuento, int pvp) {
+		return pvp * descuento / 100;
+	}
+
 }
