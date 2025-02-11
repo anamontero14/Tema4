@@ -118,4 +118,36 @@ public class Articulo {
 		return pvp * descuento / 100;
 	}
 
+	/**
+	 * Actualiza los atributos del objeto tras vender una cantidad ‘x’. Devolverá
+	 * true si ha sido posible (false en caso contrario)
+	 * 
+	 * @return si es posible dar esa cantidad
+	 */
+	public boolean vender(int cantidad) {
+
+		boolean esPosible = false;
+
+		if (cantidad < cuantosQuedan) {
+			cuantosQuedan -= cantidad;
+			esPosible = true;
+		}
+
+		return esPosible;
+	}
+
+	/**
+	 * Método almacenar que actualiza los atributos del objeto tras almacenar una
+	 * cantidad ‘x’
+	 */
+	public void almacenar(int cantidadAlmacenar) {
+		cuantosQuedan += cantidadAlmacenar;
+	}
+
+	@Override
+	public String toString() {
+		return "Articulo [nombre=" + nombre + ", precioSinIva=" + precioSinIva + ", IVA=" + IVA + ", cuantosQuedan="
+				+ cuantosQuedan + "]";
+	}
+
 }

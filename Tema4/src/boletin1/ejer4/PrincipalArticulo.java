@@ -13,12 +13,10 @@ public class PrincipalArticulo {
 		String nombre;
 		int precioSinIva;
 		int cuantosQuedan;
+		int descuento;
 
 		// creacion del objeto de la clase articulo
 		Articulo producto1;
-
-		// variable para almacenar el precio del pvp
-		double precioPublico;
 
 		System.out.print("Nombre del producto: ");
 		nombre = leer.nextLine();
@@ -33,10 +31,14 @@ public class PrincipalArticulo {
 		producto1 = new Articulo(nombre, precioSinIva, cuantosQuedan);
 
 		// calculo el precio de venta al publico
-		precioPublico = ((double) producto1.getPrecioSinIva() * producto1.IVA / 100) + producto1.getPrecioSinIva();
+		producto1.getPVP();
 
-		System.out.println(producto1.getNombre() + " - Precio: " + producto1.getPrecioSinIva() + "€ - IVA:"
-				+ producto1.IVA + "% - PVP: " + precioPublico + "€" + " - Quedan: " + producto1.getCuantosQuedan());
+		System.out.println("Introduce la cantidad del descuento: ");
+		descuento = leer.nextInt();
+
+		producto1.getPVPDescuento(descuento, producto1.getPVP());
+
+		System.out.println(producto1);
 
 		// cerrar el scanner
 		leer.close();
