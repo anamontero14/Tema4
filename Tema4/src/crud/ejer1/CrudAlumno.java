@@ -1,9 +1,7 @@
-package boletin2.ejer3;
+package crud.ejer1;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import crud.ejer1.Alumno;
 
 public class CrudAlumno {
 
@@ -59,7 +57,7 @@ public class CrudAlumno {
 	 */
 	public static boolean modificarAlumno(Alumno alumno, double media) {
 
-		boolean validez = true;
+		boolean validez;
 		// comprueba si esta o no
 		int indice = listaAlumnos.indexOf(alumno);
 		if (indice >= 0) {
@@ -67,10 +65,36 @@ public class CrudAlumno {
 			validez = true;
 		} else {
 			System.err.println("El alumno no se encuentra");
+			validez = false;
 		}
 
 		return validez;
 
+	}
+
+	/**
+	 * Elimina el objeto de la lista
+	 * 
+	 * @param alumno
+	 * @return si se ha podido ejecutar la operacion o no
+	 */
+	public static boolean eliminarAlumno(Alumno alumno) {
+		boolean validez = true;
+
+		if (listaAlumnos.contains(alumno)) {
+			// elimino al alumno
+			if (listaAlumnos.remove(alumno)) {
+				System.out.println("El alumno se eliminó correctamente.");
+			} else {
+				System.err.println("El alumno no se puede eliminar.");
+				validez = false;
+			}
+		} else {
+			System.err.println("El alumno no se encuentra.");
+			validez = false;
+		}
+
+		return validez;
 	}
 
 }

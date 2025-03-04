@@ -2,8 +2,6 @@ package crud.ejer1;
 
 import java.util.Scanner;
 
-import boletin2.ejer3.CrudAlumno;
-
 public class PrincipalAlumno {
 
 	// crear el scanner
@@ -27,14 +25,14 @@ public class PrincipalAlumno {
 		// sigue mostrando el menú mientras que la opcion no sea 5
 		while (opcion != 5) {
 
+			leer.nextLine();
+
 			switch (opcion) {
 			case 1 -> {
 				// muestra la lista de todos los alumnos almacenados en la lista
 				CrudAlumno.listarAlumnos();
 			}
 			case 2 -> {
-				// limpiar el buffer
-				leer.nextLine();
 
 				// le pregunto por el nombre y la media
 				System.out.print("Introduzca el nombre: ");
@@ -49,8 +47,6 @@ public class PrincipalAlumno {
 				CrudAlumno.nuevoAlumno(alumno);
 			}
 			case 3 -> {
-				// limpio el buffer
-				leer.nextLine();
 
 				// le pregunto al usuario por el nombre
 				System.out.print("Introduzca el nombre del alumno a modificar: ");
@@ -67,6 +63,15 @@ public class PrincipalAlumno {
 
 			}
 			case 4 -> {
+
+				// le pregunto al usuario por el nombre
+				System.out.print("Introduzca el nombre del alumno a eliminar: ");
+				nombre = leer.nextLine();
+
+				// le hago un constructor solo con el nombre
+				alumno = new Alumno(nombre);
+
+				CrudAlumno.eliminarAlumno(alumno);
 			}
 			}
 
