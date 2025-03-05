@@ -53,7 +53,7 @@ public class Disco {
 	 * @param titulo
 	 * @param duracion
 	 */
-	Disco(int codigo, String autor, String titulo, double duracion) {
+	Disco(int codigo, String autor, String titulo, double duracion, String genero) {
 		if (codigo >= 0) {
 			this.codigo = codigo;
 		}
@@ -68,6 +68,18 @@ public class Disco {
 
 		if (duracion >= 0) {
 			this.duracion = duracion;
+		}
+
+		switch (genero) {
+		case "POP" -> {
+			this.genero = Genero.POP;
+		}
+		case "JAZZ" -> {
+			this.genero = Genero.JAZZ;
+		}
+		case "BLUES" -> {
+			this.genero = Genero.BLUES;
+		}
 		}
 	}
 
@@ -123,8 +135,8 @@ public class Disco {
 
 	@Override
 	public String toString() {
-		return "Disco:\n Código:" + codigo + ", autor: " + autor + ", título: " + titulo + ", duración: " + duracion
-				+ ", género" + genero;
+		return "Disco:\n Código: " + codigo + " - Autor: " + autor + " - Título: " + titulo + " - Duración: " + duracion
+				+ " - Género: " + genero;
 	}
 
 	@Override

@@ -42,17 +42,40 @@ public class PrincipalDisco {
 				System.out.println("NUEVO DISCO");
 				System.out.print("Código: ");
 				codigo = leer.nextInt();
+				// limpiar buffer
+				leer.nextLine();
 				System.out.print("Autor: ");
 				autor = leer.nextLine();
 				System.out.print("Título: ");
 				titulo = leer.nextLine();
-				System.out.println("Género: ");
-				genero = leer.nextLine();
+				System.out.print("Duración: ");
+				duracion = leer.nextDouble();
+				// limpiar el buffer
+				leer.nextLine();
+				System.out.print("Género: ");
+				genero = leer.nextLine().toUpperCase();
 
 				// hago el constructor
-				disco = new Disco(codigo, autor, titulo, duracion);
+				disco = new Disco(codigo, autor, titulo, duracion, genero);
+
+				// llamo al método para eliminar el disco
+				CrudDisco.añadirDisco(disco);
+
 			}
 			case 3 -> {
+
+				System.out.println("ELIMINAR DISCO");
+				System.out.print("Introduzca el código del disco a eliminar: ");
+				codigo = leer.nextInt();
+				// limpiar el buffer
+				leer.nextLine();
+
+				// creo el objeto con la primary key
+				disco = new Disco(codigo);
+
+				// llamo al método para eliminar
+				CrudDisco.eliminarDisco(disco);
+
 			}
 			case 4 -> {
 				System.out.println("Saliendo...");

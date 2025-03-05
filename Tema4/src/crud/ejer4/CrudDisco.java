@@ -15,6 +15,27 @@ public class CrudDisco {
 			System.out.println();
 		}
 	}
+
+	/**
+	 * Método para agregar un nuevo disco a la colección
+	 * 
+	 * @param discoNuevo
+	 * @return la validez de la operación
+	 */
+	public static boolean añadirDisco(Disco discoNuevo) {
+
+		return coleccionDiscos.add(discoNuevo);
+	}
+
+	/**
+	 * Método para eliminar un disco a la colección
+	 * 
+	 * @param discoAEleminar
+	 * @return la validez de la operación
+	 */
+	public static boolean eliminarDisco(Disco discoAEleminar) {
+		return coleccionDiscos.remove(discoAEleminar);
+	}
 	
 	
 
