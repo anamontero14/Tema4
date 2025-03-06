@@ -29,6 +29,17 @@ public class CuentaCorriente {
 	};
 
 	/**
+	 * Constructor solo con la primary key
+	 * 
+	 * @param dni
+	 */
+	CuentaCorriente(String dni) {
+		if (this.dni != null) {
+			this.dni = dni;
+		}
+	}
+
+	/**
 	 * Constructor con el DNI del titular de la cuenta y un saldo inicial.
 	 * 
 	 * @param dni
