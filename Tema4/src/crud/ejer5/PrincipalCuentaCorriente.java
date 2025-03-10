@@ -13,6 +13,7 @@ public class PrincipalCuentaCorriente {
 		String nombre = "";
 		double saldo = 0;
 		String nacion = "";
+		double dinero = 0;
 
 		// creo el objeto
 		CuentaCorriente cuenta;
@@ -45,6 +46,59 @@ public class PrincipalCuentaCorriente {
 
 				// llamo al método
 				CrudCuentaCorriente.añadirCuenta(cuenta);
+			}
+			case 3 -> {
+				System.out.println("ELIMINAR CUENTA\n========");
+				System.out.print("DNI del propietario: ");
+				dni = leer.next();
+
+				// creo el objeto
+				cuenta = new CuentaCorriente(dni);
+
+				// llamo al metodo
+				CrudCuentaCorriente.eliminarCuenta(cuenta);
+			}
+			case 4 -> {
+				System.out.println("MODIFICAR CUENTA\n========");
+				System.out.print("DNI del propietario: ");
+				dni = leer.next();
+
+				System.out.println("Saldo nuevo: ");
+				saldo = leer.nextDouble();
+
+				cuenta = new CuentaCorriente(dni);
+
+				CrudCuentaCorriente.modificarCuenta(cuenta, saldo);
+			}
+			case 5 -> {
+				System.out.println("METER DINERO\n========");
+				System.out.print("DNI del propietario de la cuenta: ");
+				dni = leer.next();
+
+				System.out.print("Dinero a meter: ");
+				dinero = leer.nextDouble();
+
+				// constructor del objeto
+				cuenta = new CuentaCorriente(dni);
+
+				// llamo al metodo
+				CrudCuentaCorriente.meterDinero(cuenta, dinero);
+			}
+
+			case 6 -> {
+
+				System.out.println("SACAR DINERO\n========");
+				System.out.print("DNI del propietario de la cuenta: ");
+				dni = leer.next();
+
+				System.out.print("Dinero a sacar: ");
+				dinero = leer.nextDouble();
+
+				// constructor del objeto
+				cuenta = new CuentaCorriente(dni);
+
+				// llamo al metodo
+				CrudCuentaCorriente.sacarDinero(cuenta, dinero);
 			}
 			}
 

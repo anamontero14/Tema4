@@ -40,4 +40,84 @@ public class CrudCuentaCorriente {
 		return listaCuentas.remove(cuentaAEliminar);
 	}
 
+	/**
+	 * Método para modificar la cuenta
+	 * 
+	 * @param cuenta
+	 * @param saldo
+	 * @return
+	 */
+	public static boolean modificarCuenta(CuentaCorriente cuenta, double saldo) {
+		boolean validez = false;
+		// comprueba si esta o no
+		int indice = listaCuentas.indexOf(cuenta);
+		if (indice >= 0) {
+			listaCuentas.get(indice).setSaldo(saldo);
+			validez = true;
+		} else {
+			System.err.println("El producto no se encuentra");
+		}
+
+		return validez;
+	}
+
+	/**
+	 * Método para meter dinero
+	 * 
+	 * @param cuenta
+	 * @param dinero
+	 * @return
+	 */
+	public static boolean meterDinero(CuentaCorriente cuenta, double dinero) {
+		boolean validez = false;
+
+		double cantidad;
+
+		int indice = listaCuentas.indexOf(cuenta);
+		if (indice >= 0) {
+			// cojo la cantidad que hay ahora mismo del producto
+			cantidad = listaCuentas.get(indice).getSaldo();
+
+			// le sumo la cantidad que ha entrado
+			cantidad += dinero;
+
+			// la actualizo
+			listaCuentas.get(indice).setSaldo(cantidad);
+			validez = true;
+		} else {
+			System.err.println("El producto no se encuentra");
+		}
+
+		return validez;
+	}
+
+	/**
+	 * Método para sacar dinero
+	 * 
+	 * @param cuenta
+	 * @param dinero
+	 * @return
+	 */
+	public static boolean sacarDinero(CuentaCorriente cuenta, double dinero) {
+		boolean validez = false;
+
+		double cantidad;
+
+		int indice = listaCuentas.indexOf(cuenta);
+		if (indice >= 0) {
+			// cojo la cantidad que hay ahora mismo del producto
+			cantidad = listaCuentas.get(indice).getSaldo();
+
+			// le sumo la cantidad que ha entrado
+			cantidad -= dinero;
+
+			// la actualizo
+			listaCuentas.get(indice).setSaldo(cantidad);
+			validez = true;
+		} else {
+			System.err.println("El producto no se encuentra");
+		}
+
+		return validez;
+	}
 }

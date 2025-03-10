@@ -148,10 +148,10 @@ public class CuentaCorriente {
 	/**
 	 * Coloca el saldo de la persona
 	 * 
-	 * @param saldo
+	 * @param saldo2
 	 */
-	public void setSaldo(int saldo) {
-		this.saldo = saldo;
+	public void setSaldo(double saldo2) {
+		this.saldo = saldo2;
 	}
 
 	/**
