@@ -8,7 +8,7 @@ public class Empleado {
 	private String nombre;
 	private double sueldoBase;
 	private double horasExtra;
-	private double importeHoraExtra;
+	private static double importeHoraExtra = 10;
 
 	/**
 	 * Constructor solo con el dni
@@ -30,7 +30,7 @@ public class Empleado {
 	 * @param horasExtra
 	 * @param importeHoraExtra
 	 */
-	Empleado(String dni, String nombre, double sueldoBase, double horasExtra, double importeHoraExtra) {
+	Empleado(String dni, String nombre, double sueldoBase, double horasExtra) {
 		if (dni != null) {
 			this.dni = dni;
 		}
@@ -43,12 +43,8 @@ public class Empleado {
 			this.sueldoBase = sueldoBase;
 		}
 
-		if (horasExtra >= 0) {
+		if (horasExtra >= 0 && horasExtra <= 80) {
 			this.horasExtra = horasExtra;
-		}
-
-		if (importeHoraExtra >= 0) {
-			this.importeHoraExtra = importeHoraExtra;
 		}
 	}
 
@@ -84,8 +80,10 @@ public class Empleado {
 		return importeHoraExtra;
 	}
 
-	public void setImporteHoraExtra(double importeHoraExtra) {
-		this.importeHoraExtra = importeHoraExtra;
+	public static void setImporteHoraExtra(double importe) {
+		if (importeHoraExtra > 0) {
+			importeHoraExtra = importe;
+		}
 	}
 
 	/**

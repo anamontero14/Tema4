@@ -63,16 +63,14 @@ public class ListadoEmpleado {
 	/**
 	 * Modifica el importe de las horas extra del empleado
 	 * 
-	 * @param empleDni
 	 * @param importeHorasExtra
 	 * @return
 	 */
-	public static boolean modificarImporteHorasExtra(Empleado empleDni, double importeHorasExtra) {
+	public static boolean modificarImporteHorasExtra(double importeHorasExtra) {
 		boolean validez = false;
-		int indice = listaEmpleados.indexOf(empleDni);
 
-		if (listaEmpleados.contains(empleDni)) {
-			listaEmpleados.get(indice).setImporteHoraExtra(importeHorasExtra);
+		if (importeHorasExtra > 0) {
+			Empleado.setImporteHoraExtra(importeHorasExtra);
 			validez = true;
 		}
 

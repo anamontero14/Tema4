@@ -31,8 +31,7 @@ public class PrincipalEmpleado {
 			case 1 -> {
 
 				System.out.println("AÑADIR UN NUEVO EMPLEADO");
-				System.out.print("Introduce el DNI: ");
-				dni = leer.next();
+				dni = recogerDni();
 
 				// limpiar el buffer
 				leer.nextLine();
@@ -46,11 +45,8 @@ public class PrincipalEmpleado {
 				System.out.print("Introduce el nº de horas extras: ");
 				horasExtra = leer.nextDouble();
 
-				System.out.print("Introduce el importe por hora extra: ");
-				importeHoraExtra = leer.nextDouble();
-
 				// creacion del objeto
-				empleObj = new Empleado(dni, nombre, sueldoBase, horasExtra, importeHoraExtra);
+				empleObj = new Empleado(dni, nombre, sueldoBase, horasExtra);
 
 				// llamo a la funcion
 				if (ListadoEmpleado.añadirEmpleado(empleObj)) {
@@ -70,14 +66,12 @@ public class PrincipalEmpleado {
 			case 3 -> {
 
 				System.out.println("MODIFICAR HORAS EXTRA");
-				System.out.print("Introduce el DNI del empleado que desea modificar: ");
-				dni = leer.next();
 
 				System.out.print("Introduce el nº nuevo de horas extras: ");
 				horasExtra = leer.nextDouble();
 
 				// creo el objeto
-				empleObj = new Empleado(dni);
+				empleObj = recogerEmpleadoDNI();
 
 				// llamo a la funcion
 				if (ListadoEmpleado.modificarHorasExtra(empleObj, horasExtra)) {
@@ -90,17 +84,11 @@ public class PrincipalEmpleado {
 			case 4 -> {
 
 				System.out.println("MODIFICAR EL IMPORTE DE LAS HORAS EXTRA");
-				System.out.print("Introduce el DNI del empleado que desea modificar: ");
-				dni = leer.next();
-
 				System.out.print("Introduce el nuevo importe para las horas extras: ");
 				importeHoraExtra = leer.nextDouble();
 
-				// crear el objeto
-				empleObj = new Empleado(dni);
-
 				// llamo a la funcion
-				if (ListadoEmpleado.modificarImporteHorasExtra(empleObj, importeHoraExtra)) {
+				if (ListadoEmpleado.modificarImporteHorasExtra(importeHoraExtra)) {
 					System.out.println("\tSe pudo modificar el empleado con éxito");
 				} else {
 					System.err.println("\tNo se pudo modificar el empleado");
@@ -110,10 +98,8 @@ public class PrincipalEmpleado {
 			case 5 -> {
 
 				System.out.println("ELIMINAR UN EMPLEADO");
-				System.out.print("Introduce el DNI del empleado que desea modificar: ");
-				dni = leer.next();
 
-				empleObj = new Empleado(dni);
+				empleObj = recogerEmpleadoDNI();
 
 				// llamo a la funcion
 				if (ListadoEmpleado.eliminarEmpleado(empleObj)) {
@@ -155,10 +141,32 @@ public class PrincipalEmpleado {
 		return opcion;
 	}
 
-	/*
-	 * public static void recogerDni() {
+	/**
+	 * Funcion para recoger el dni
 	 * 
-	 * }
+	 * @return el dni introducido
 	 */
+	public static String recogerDni() {
+
+		String dni;
+		System.out.print("Introduzca el DNI: ");
+		dni = leer.next();
+
+		return dni;
+	}
+
+	/**
+	 * Recoger el constructor del empleado
+	 * 
+	 * @return el constructor con solo el dni
+	 */
+	public static Empleado recogerEmpleadoDNI() {
+		// creo un empleado
+		Empleado empleDNi;
+
+		empleDNi = new Empleado(recogerDni());
+
+		return empleDNi;
+	}
 
 }
