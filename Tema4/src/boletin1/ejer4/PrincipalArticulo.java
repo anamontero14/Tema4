@@ -15,20 +15,31 @@ public class PrincipalArticulo {
 		int cuantosQuedan;
 		int descuento;
 
+		boolean salir = false;
+
 		// creacion del objeto de la clase articulo
-		Articulo producto1;
+		Articulo producto1 = null;
 
-		System.out.print("Nombre del producto: ");
-		nombre = leer.nextLine();
+		do {
+			System.out.print("Nombre del producto: ");
+			nombre = leer.nextLine();
 
-		System.out.print("Precio del producto: ");
-		precioSinIva = leer.nextInt();
+			System.out.print("Precio del producto: ");
+			precioSinIva = leer.nextInt();
 
-		System.out.print("Cantidad del producto: ");
-		cuantosQuedan = leer.nextInt();
+			System.out.print("Cantidad del producto: ");
+			cuantosQuedan = leer.nextInt();
 
-		// Le asigno los valores al objeto
-		producto1 = new Articulo(nombre, precioSinIva, cuantosQuedan);
+			try {
+				// Le asigno los valores al objeto
+				producto1 = new Articulo(nombre, precioSinIva, cuantosQuedan);
+			} catch (NombreExcepcion e) {
+				System.err.println(e.toString());
+			} finally {
+				leer.nextLine();
+			}
+
+		} while (!salir);
 
 		// calculo el precio de venta al publico
 		producto1.getPVP();

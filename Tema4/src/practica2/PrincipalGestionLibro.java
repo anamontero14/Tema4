@@ -182,7 +182,7 @@ public class PrincipalGestionLibro {
 	}
 
 	// leer el codigo
-	public static int recogerCodigo() {
+	private static int recogerCodigo() {
 		int codigo;
 
 		System.out.print("Código: ");
@@ -193,21 +193,21 @@ public class PrincipalGestionLibro {
 		return codigo;
 	}
 
-	public static String recogerGenero() {
+	private static String recogerGenero() {
 		String genero;
 		System.out.print("Género del libro (TERROR/ROMANCE/ACCIÓN): ");
 		genero = leer.next().toUpperCase();
 		return genero;
 	}
 
-	public static String recogerAutor() {
+	private static String recogerAutor() {
 		String autor;
 		System.out.print("Autor: ");
 		autor = leer.nextLine();
 		return autor;
 	}
 
-	public static String recogerNombre() {
+	private static String recogerNombre() {
 		String nombre;
 		System.out.print("Nombre: ");
 		nombre = leer.nextLine();

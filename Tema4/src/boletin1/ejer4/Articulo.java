@@ -24,11 +24,13 @@ public class Articulo {
 	 * @param precioSinIva  el precio del producto sin el iva
 	 * @param cuantosQuedan cantidad que queda del producto en el almacén (stock)
 	 */
-	Articulo(String nombre, int precioSinIva, int cuantosQuedan) {
+	Articulo(String nombre, int precioSinIva, int cuantosQuedan) throws NombreExcepcion {
 
 		// comprueba el valor introducido
 		if (nombre != null && !nombre.isEmpty()) {
 			this.nombre = nombre;
+		} else {
+			throw new NombreExcepcion();
 		}
 
 		// comprueba que el precio no sea menor o igual a 0
