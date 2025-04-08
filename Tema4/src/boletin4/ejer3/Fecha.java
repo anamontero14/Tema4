@@ -6,17 +6,23 @@ public class Fecha {
 	private int mes;
 	private int año;
 
-	Fecha(int dia, int mes, int año) {
+	Fecha(int dia, int mes, int año) throws ExcepcionDia, ExcepcionMes, ExcepcionAño {
 		if (dia > 0) {
 			this.dia = dia;
+		} else {
+			throw new ExcepcionDia();
 		}
 
 		if (mes > 0) {
 			this.mes = mes;
+		} else {
+			throw new ExcepcionMes();
 		}
 
 		if (año > 0) {
 			this.año = año;
+		} else {
+			throw new ExcepcionAño();
 		}
 	}
 

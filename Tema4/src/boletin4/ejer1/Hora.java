@@ -33,24 +33,42 @@ public class Hora {
 		return hora;
 	}
 
-	public void setHora(int hora) {
-		this.hora = hora;
+	/**
+	 * Usa una excepción para comprobar que la hora no sea negativa
+	 * 
+	 * @param hora - La hora
+	 * @throws NegativeHourException
+	 */
+	public void setHora(int hora) throws NegativeHourException {
+		if (hora >= 0) {
+			this.hora = hora;
+		} else {
+			throw new NegativeHourException();
+		}
 	}
 
 	public int getMinuto() {
 		return minuto;
 	}
 
-	public void setMinuto(int minuto) {
-		this.minuto = minuto;
+	public void setMinuto(int minuto) throws NegativeMinuteException {
+		if (minuto >= 0) {
+			this.minuto = minuto;
+		} else {
+			throw new NegativeMinuteException();
+		}
 	}
 
 	public int getSegundo() {
 		return segundo;
 	}
 
-	public void setSegundo(int segundo) {
-		this.segundo = segundo;
+	public void setSegundo(int segundo) throws NegativeSecondException {
+		if (segundo >= 0) {
+			this.segundo = segundo;
+		} else {
+			throw new NegativeSecondException();
+		}
 	}
 
 	/**
