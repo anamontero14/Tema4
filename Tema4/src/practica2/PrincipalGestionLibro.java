@@ -9,10 +9,8 @@ public class PrincipalGestionLibro {
 	public static void main(String[] args) {
 
 		// atributos iguales a los de la clase
-		int cod;
 		String nombre;
 		String autor;
-		int numPaginas;
 		String genero;
 		String nombreBiblioteca;
 
@@ -42,15 +40,8 @@ public class PrincipalGestionLibro {
 
 				System.out.println();
 				System.out.println("AÑADIR UN NUEVO LIBRO");
-				cod = recogerCodigo();
-				nombre = recogerNombre();
-				autor = recogerAutor();
-				System.out.print("Nº de páginas del libro: ");
-				numPaginas = leer.nextInt();
-				genero = recogerGenero();
 
-				// crear el objeto
-				libro = new LibroGestion(cod, nombre, autor, numPaginas, genero);
+				libro = crearObejetoCompleto();
 
 				// llamar a la funcion y hacer el if
 				if (CrudGestionLibro.añadirLibro(libro)) {
@@ -182,7 +173,7 @@ public class PrincipalGestionLibro {
 	}
 
 	// leer el codigo
-	public static int recogerCodigo() {
+	private static int recogerCodigo() {
 		int codigo;
 
 		System.out.print("Código: ");
@@ -193,21 +184,40 @@ public class PrincipalGestionLibro {
 		return codigo;
 	}
 
-	public static String recogerGenero() {
+	// crear el objeto completo
+	private static LibroGestion crearObejetoCompleto() {
+		int codigo = recogerCodigo();
+		String nombre = recogerNombre();
+		String autor = recogerAutor();
+		int numPaginas;
+		String genero = recogerGenero();
+
+		System.out.println("Introduzca el nº de páginas: ");
+		numPaginas = leer.nextInt();
+		// limpiar buffer
+		leer.nextLine();
+
+		// objeto
+		LibroGestion libro = new LibroGestion(codigo, nombre, autor, numPaginas, genero);
+
+		return libro;
+	}
+
+	private static String recogerGenero() {
 		String genero;
 		System.out.print("Género del libro (TERROR/ROMANCE/ACCIÓN): ");
 		genero = leer.next().toUpperCase();
 		return genero;
 	}
 
-	public static String recogerAutor() {
+	private static String recogerAutor() {
 		String autor;
 		System.out.print("Autor: ");
 		autor = leer.nextLine();
 		return autor;
 	}
 
-	public static String recogerNombre() {
+	private static String recogerNombre() {
 		String nombre;
 		System.out.print("Nombre: ");
 		nombre = leer.nextLine();
@@ -215,7 +225,7 @@ public class PrincipalGestionLibro {
 	}
 
 	// crear objeto solo con PK
-	public static LibroGestion crearObjPk() {
+	private static LibroGestion crearObjPk() {
 		LibroGestion libro = new LibroGestion(recogerCodigo());
 		return libro;
 	}

@@ -4,16 +4,15 @@ import java.util.Objects;
 
 public class LibroGestion {
 
+	enum Genero {
+		TERROR, ROMANCE, ACCION
+	};
+
+	private Genero genero = Genero.ACCION;
 	private int cod;
 	private String name;
 	private String autor;
 	private int numPaginas;
-
-	Genero genero = Genero.ACCION;
-
-	enum Genero {
-		TERROR, ROMANCE, ACCION
-	};
 
 	// igual para todos los libros
 	private static String nombreBiblio = "Casa de la cultura";
@@ -29,11 +28,11 @@ public class LibroGestion {
 			this.cod = cod;
 		}
 
-		if (name != null) {
+		if (name != null && !name.isBlank()) {
 			this.name = name;
 		}
 
-		if (autor != null) {
+		if (autor != null && !name.isBlank()) {
 			this.autor = autor;
 		}
 
@@ -41,15 +40,7 @@ public class LibroGestion {
 			this.numPaginas = numPaginas;
 		}
 
-		switch (genero) {
-		case "TERROR" -> {
-			this.genero = Genero.TERROR;
-		}
-		case "ROMANCE" -> {
-			this.genero = Genero.ROMANCE;
-		}
-		}
-
+		comprobarGenero(genero);
 	}
 
 	public int getCod() {
@@ -81,16 +72,18 @@ public class LibroGestion {
 	}
 
 	public void setGenero(String genero) {
+		comprobarGenero(genero);
+	}
 
-		switch (genero) {
-		case "TERROR" -> {
-			this.genero = Genero.TERROR;
-		}
-		case "ROMANCE" -> {
-			this.genero = Genero.ROMANCE;
-		}
-		}
+	private void comprobarGenero(String genero) {
 
+		if (genero != null && !name.isBlank()) {
+			switch (genero) {
+			case "TERROR", "ROMANCE", "ACCION" -> {
+				this.genero = Genero.valueOf(genero);
+			}
+			}
+		}
 	}
 
 	public static String getNombreBiblio() {

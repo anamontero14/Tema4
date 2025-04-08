@@ -4,7 +4,7 @@ import java.util.HashSet;
 
 public class CrudGestionLibro {
 
-	public static HashSet<LibroGestion> listaLibros = new HashSet<LibroGestion>();
+	private static HashSet<LibroGestion> listaLibros = new HashSet<LibroGestion>();
 
 	// mostrar
 	public static void mostrarLibros() {
